@@ -1,0 +1,25 @@
+<div class="movie-card">
+  <div class="poster">
+    <img
+      [src]="
+        movie.poster_path
+          ? 'https://image.tmdb.org/t/p/w500' + movie.poster_path
+          : 'assets/no-image.png'
+      "
+      alt="{{ movie.title }}"
+    />
+  </div>
+  <div class="movie-info">
+    <h3 class="movie-title">{{ movie.title }}</h3>
+    <div class="rating">
+      <span class="star">&#9733;</span>
+      <span>{{ movie.vote_average | number : "1.1-1" }}/10</span>
+    </div>
+  </div>
+  <div class="overlay">
+    <p>{{ movie.overview }}</p>
+    <button (click)="openMovieDetailsModal(movie)" class="details-button">
+      View Details
+    </button>
+  </div>
+</div>

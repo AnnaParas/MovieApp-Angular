@@ -1,0 +1,22 @@
+<div class="modal-content">
+  <button class="close-button" (click)="closeModal()">&#x2715;</button>
+  <h2>{{ movie.title }}</h2>
+  <img
+    class="movie-poster"
+    [src]="
+      movie.poster_path
+        ? 'https://image.tmdb.org/t/p/w500' + movie.poster_path
+        : 'assets/no-image.png'
+    "
+    alt="{{ movie.title }}"
+  />
+  <div class="movie-info">
+    <p><strong>Overview:</strong> {{ movie.overview }}</p>
+    <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+    <p><strong>Budget:</strong> ${{ movie.budget | number }}</p>
+    <p><strong>Revenue:</strong> ${{ movie.revenue | number }}</p>
+    <p>
+      <strong>Rating:</strong> {{ movie.vote_average | number : "1.1-1" }}/10
+    </p>
+  </div>
+</div>
