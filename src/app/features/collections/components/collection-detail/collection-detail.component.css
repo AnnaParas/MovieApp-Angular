@@ -1,0 +1,63 @@
+/* Container styles */
+div {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light gray background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Title styles */
+h2 {
+  font-size: 24px; /* Large font for the title */
+  color: #333; /* Dark color for better contrast */
+  margin-bottom: 10px; /* Spacing below title */
+}
+
+/* Description styles */
+p {
+  font-size: 16px; /* Medium font for description */
+  color: #666; /* Slightly lighter color */
+  margin-bottom: 20px; /* Spacing below description */
+}
+
+/* Movie list styles */
+ul {
+  list-style-type: none; /* Remove default bullet points */
+  padding: 0; /* Remove padding */
+}
+
+li {
+  display: flex; /* Flexbox for layout */
+  justify-content: space-between; /* Space between elements */
+  align-items: center; /* Center vertically */
+  padding: 10px; /* Padding around each movie */
+  border-bottom: 1px solid #eee; /* Light bottom border for separation */
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button + button {
+  margin-left: 10px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;;
+}

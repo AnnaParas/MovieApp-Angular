@@ -1,1 +1,12 @@
-<p>collection-create works!</p>
+<div>
+  <h2>Create New Collection</h2>
+  <label>
+    Title:
+    <input [(ngModel)]="title" />
+  </label>
+  <label>
+    Description:
+    <input [(ngModel)]="description" />
+  </label>
+  <button (click)="createCollection()">Create Collection</button>
+</div>

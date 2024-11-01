@@ -2,13 +2,16 @@
   <div class="search-bar">
     <input
       type="text"
+      appSearchInputValidation
       placeholder="Search for movies..."
       [(ngModel)]="searchQuery"
       (ngModelChange)="onSearchChange()"
-      appSearchValidator
       class="search-input"
     />
     <button class="search-button" (click)="searchMovies()">Search</button>
+    <button class="collections-button" (click)="navigateToCollections()">
+      My Collections
+    </button>
   </div>
 
   <div class="movies-grid">

@@ -1,1 +1,13 @@
-<p>collection-detail works!</p>
+<div *ngIf="collection">
+  <h2>{{ collection.title }}</h2>
+  <p>{{ collection.description }}</p>
+  <ul>
+    <li *ngFor="let movie of collection.movies">
+      {{ movie.title }}
+      <div class="buttons-container">
+        <button (click)="removeMovie(movie)">Remove</button>
+        <button [routerLink]="['/movie', movie.id]">View Details</button>
+      </div>
+    </li>
+  </ul>
+</div>

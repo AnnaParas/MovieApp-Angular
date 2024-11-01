@@ -6,6 +6,7 @@ import { CollectionDetailComponent } from './components/collection-detail/collec
 import { AddToCollectionComponent } from './components/add-to-collection/add-to-collection.component';
 import { CollectionsRoutingModule } from './collections-routing.module';
 import { SharedModule } from '../../shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,12 @@ import { SharedModule } from '../../shared/shared.module';
     CollectionDetailComponent,
     AddToCollectionComponent,
   ],
-  imports: [CommonModule, SharedModule, CollectionsRoutingModule],
+  imports: [
+    CommonModule,
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CollectionsRoutingModule,
+  ],
 })
 export class CollectionsModule {}

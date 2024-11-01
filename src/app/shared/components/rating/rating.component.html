@@ -1,1 +1,29 @@
-<p>rating works!</p>
+<div class="modal-container">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title">Rate This Movie</h2>
+      <button class="close-button" (click)="onClose()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="rating-stars">
+        <mat-icon class="star" (click)="setRating(1)">star</mat-icon>
+        <mat-icon class="star" (click)="setRating(2)">star</mat-icon>
+        <mat-icon class="star" (click)="setRating(3)">star</mat-icon>
+        <mat-icon class="star" (click)="setRating(4)">star</mat-icon>
+        <mat-icon class="star" (click)="setRating(5)">star</mat-icon>
+      </div>
+      <p *ngIf="rating !== null">You rated this movie: {{ rating }} star(s)</p>
+      <p *ngIf="rating === null">Click on a star to rate!</p>
+    </div>
+    <div class="modal-footer">
+      <button
+        class="submit-button"
+        (click)="submitRating()"
+        [disabled]="rating === null"
+      >
+        Submit
+      </button>
+      <button class="cancel-button" (click)="onClose()">Cancel</button>
+    </div>
+  </div>
+</div>

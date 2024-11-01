@@ -9,11 +9,12 @@ const routes: Routes = [
       import('./features/search/search.module').then((m) => m.SearchModule),
   },
   {
-    path: 'movie/:id',
+    path: 'movie/:id', // This route handles displaying movie details
     loadChildren: () =>
       import('./features/movie-details/movie-details.module').then(
         (m) => m.MovieDetailsModule
       ),
+    outlet: 'modal',
   },
   {
     path: 'collections',
@@ -26,7 +27,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

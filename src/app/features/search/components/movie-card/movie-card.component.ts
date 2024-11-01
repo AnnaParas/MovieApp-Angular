@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CollectionService } from '../../../../core/services/collection.service';
+import { CollectionData } from '../../../../shared/models/collection-data';
 
 @Component({
   selector: 'app-movie-card',
@@ -8,9 +10,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MovieCardComponent implements OnInit {
   @Input() movie: any;
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 
-  openMovieDetailsModal(movie: any) {
-    console.log('Movie card: ', movie);
-  }
+  openMovieDetailsModal(movie: any) {}
 }

@@ -1,22 +1,37 @@
 <div class="modal-content">
   <button class="close-button" (click)="closeModal()">&#x2715;</button>
-  <h2>{{ movie.title }}</h2>
+  <h2>{{ data.title }}</h2>
   <img
-    class="movie-poster"
+    class="data-poster"
     [src]="
-      movie.poster_path
-        ? 'https://image.tmdb.org/t/p/w500' + movie.poster_path
+      data.poster_path
+        ? 'https://image.tmdb.org/t/p/w500' + data.poster_path
         : 'assets/no-image.png'
     "
-    alt="{{ movie.title }}"
+    alt="{{ data.title }}"
   />
-  <div class="movie-info">
-    <p><strong>Overview:</strong> {{ movie.overview }}</p>
-    <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
-    <p><strong>Budget:</strong> ${{ movie.budget | number }}</p>
-    <p><strong>Revenue:</strong> ${{ movie.revenue | number }}</p>
+  <div class="data-info">
+    <p><strong>Overview:</strong> {{ data.overview }}</p>
+    <p><strong>Release Date:</strong> {{ data.release_date }}</p>
+    <p><strong>Budget:</strong> ${{ data.budget | number }}</p>
+    <p><strong>Revenue:</strong> ${{ data.revenue | number }}</p>
     <p>
-      <strong>Rating:</strong> {{ movie.vote_average | number : "1.1-1" }}/10
+      <strong>Rating:</strong> {{ data.vote_average | number : "1.1-1" }}/10
     </p>
+    <p><strong>Vote Count:</strong> {{ data.vote_count | number }}</p>
+    <p>
+      <strong>Spoken Languages:</strong>
+      <span *ngFor="let lang of movieLangs; let isLast = last">
+        {{ lang.english_name
+        }}<span *ngIf="movieLangs.length !== 0 && !isLast">,</span></span
+      >
+    </p>
+  </div>
+  <button (click)="openRatingModal()" class="rate-button">Rate Now</button>
+  <div>
+    <!-- Assume movies are displayed in a list with checkboxes -->
+    <button (click)="openAddToCollectionDialog()" class="collection-button">
+      Add to Collection
+    </button>
   </div>
 </div>

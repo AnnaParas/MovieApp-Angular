@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CollectionService } from '../../../../core/services/collection.service';
+import { CollectionData } from '../../../../shared/models/collection-data';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-collections-page',
@@ -7,9 +9,12 @@ import { CollectionService } from '../../../../core/services/collection.service'
   styleUrl: './collections-page.component.css',
 })
 export class CollectionsPageComponent implements OnInit {
-  collections: any[] = [];
+  collections: CollectionData[] = [];
 
-  constructor(private collectionService: CollectionService) {}
+  constructor(
+    private collectionService: CollectionService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.collections = this.collectionService.getCollections();
@@ -17,5 +22,14 @@ export class CollectionsPageComponent implements OnInit {
 
   viewCollection(collectionId: number) {
     // Logic to navigate to collection detail view
+  }
+
+  // createCollection() {
+  //   this.router.navigate;
+  // }
+
+  deleteCollection(id: number): void {
+    this.collectionService.deleteCollection(id);
+    this.collections = this.collectionService.getCollections(); // Refresh list
   }
 }
